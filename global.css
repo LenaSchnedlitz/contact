@@ -1,0 +1,145 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  font-family: 'Inter', sans-serif;
+  color: #29282d;
+  background: conic-gradient(from -90deg at 50% 110%, #f1ede9, #dbd3cf);
+}
+
+main {
+  width: 92vw;
+  max-width: 600px;
+  aspect-ratio: 9 / 16;
+  margin-top: 16px;
+  box-sizing: border-box;
+  padding: 64px 48px 40px;
+  display: grid;
+  justify-content: space-between;
+  background: white;
+  box-shadow:
+    4.5px 4.5px 3.6px rgba(125, 100, 97, 0.024),
+    12.5px 12.5px 10px rgba(125, 100, 97, 0.035),
+    30.1px 30.1px 24.1px rgba(125, 100, 97, 0.046),
+    100px 100px 80px rgba(125, 100, 97, 0.07);
+  transform: rotate(1deg);
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-weight: 800;
+  font-size: 1.953rem;
+  text-transform: uppercase;
+}
+
+span {
+  font-size: 1.25rem;
+  color: #625c60;
+}
+
+ul {
+  display: grid;
+  align-content: end;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #29282d;
+  outline: none;
+}
+
+svg:not(.self-portrait) {
+  width: .75rem;
+  height: .75rem;
+  margin-right: .5rem;
+  fill: currentColor;
+  fill-opacity: 0;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: all ease-in .1s;
+}
+
+a:hover,
+a:focus {
+  color: #6868ac;
+}
+
+a:hover svg {
+  stroke-width: 2.5;
+}
+
+a:focus svg {
+  margin-right: 1rem;
+  stroke-width: 2.5;
+  fill-opacity: .25;
+}
+
+.self-portrait {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 256px;
+  height: 100%;
+}
+
+.self-portrait path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 4;
+}
+
+.self-portrait .thin {
+  stroke-width: 0.62;
+}
+
+.self-portrait .medium {
+  stroke-width: 1;
+}
+
+.self-portrait .thick {
+  stroke-width: 1.618;
+}
+
+@media screen and (min-width: 500px) {
+  main {
+    aspect-ratio: 1 / 1;
+    margin-top: 128px;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  body {
+    align-content: center;
+  }
+
+  main {
+    aspect-ratio: 16 / 9;
+    margin-top: 0;
+    transform: rotate(-1deg);
+  }
+}
+
+::selection {
+  background: #6868ac;
+  color: white;
+}
