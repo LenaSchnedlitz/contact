@@ -11,6 +11,7 @@ body {
   justify-content: center;
   align-content: start;
   font-family: 'Inter', sans-serif;
+  font-weight: 400;
   color: #29282d;
   background: conic-gradient(from -90deg at 50% 110%, #f1ede9, #dbd3cf);
 }
@@ -58,6 +59,7 @@ li {
 }
 
 a {
+  width: max-content;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -65,7 +67,7 @@ a {
   outline: none;
 }
 
-svg:not(.self-portrait) {
+svg {
   width: .75rem;
   height: .75rem;
   margin-right: .5rem;
@@ -93,33 +95,6 @@ a:focus svg {
   fill-opacity: .25;
 }
 
-.self-portrait {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 256px;
-  height: 100%;
-}
-
-.self-portrait path {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-miterlimit: 4;
-}
-
-.self-portrait .thin {
-  stroke-width: 0.62;
-}
-
-.self-portrait .medium {
-  stroke-width: 1;
-}
-
-.self-portrait .thick {
-  stroke-width: 1.618;
-}
-
 @media screen and (min-width: 500px) {
   main {
     aspect-ratio: 1 / 1;
@@ -135,6 +110,7 @@ a:focus svg {
   main {
     aspect-ratio: 16 / 9;
     margin-top: 0;
+    margin-bottom: 48px;
     transform: rotate(-1deg);
   }
 }
