@@ -1,3 +1,5 @@
+@import 'Inter/font-face.css';
+
 :root {
   --frame: 32px;
 }
@@ -11,10 +13,20 @@ body {
   overflow: hidden;
 }
 
+html {
+  font-family: 'Inter', sans-serif;
+  font-feature-settings: 'calt';
+  font-size: 20px;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'Inter var', sans-serif;
+  }
+}
+
 body {
   position: relative;
-  font-family: 'Inter', sans-serif;
-  font-size: 20px;
 }
 
 .logo {
@@ -31,19 +43,39 @@ main {
   height: 80%;
   display: flex;
   align-items: center;
-  font-size: min(7vw, 20vh);
+  font-size: min(7vw, 11vh);
+  font-weight: 300;
   line-height: 1.4em;
   overflow: hidden;
 }
 
-em {
-  font-style: normal;
-  font-weight: 600;
-  display: inline-block;
+@media screen and (orientation: landscape) {
+  main {
+    line-height: 1.3;
+    top: calc(20vh - var(--frame));
+    left: calc(var(--frame) * 2);
+  }
 }
 
 p {
   margin: 0;
+}
+
+p > span {
+  font-weight: 400;
+}
+
+p > span > span {
+  font-weight: 500;
+}
+
+p > span > span > span {
+  font-weight: 600;
+}
+
+p > span > span > span > span {
+  font-weight: 700;
+  font-weight: 650;
 }
 
 .links {
