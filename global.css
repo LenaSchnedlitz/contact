@@ -87,20 +87,30 @@ p > span > span > span > span {
 }
 
 .links.top {
-  top: var(--frame);
+  top: calc(var(--frame) - 28px);
 }
 
 .links.bottom {
-  bottom: var(--frame);
+  bottom: calc(var(--frame) - 28px);
 }
 
 .links a {
+  height: 48px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  padding: 32px 0 0;
   color: #29282d;
+  line-height: 16px;
   font-size: 16px;
   font-weight: 300;
-  line-height: 24px;
   outline: none;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.links a:last-of-type {
+  margin: 0;
+  padding: 0 0 32px;
 }
 
 .links.top a:last-of-type,
