@@ -77,6 +77,20 @@ p > span > span > span > span {
   font-weight: 650;
 }
 
+p a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: currentColor;
+  text-decoration: none;
+  transition: all ease-out .3s;
+}
+
+p a:hover,
+p a:focus-visible {
+  text-decoration: underline;
+  letter-spacing: .03em;
+}
+
 .links {
   position: absolute;
   right: var(--frame);
