@@ -2,15 +2,6 @@
 
 :root {
   --frame: 32px;
-
-  --coffee: #b3906c;
-  --cornsilk: #ecc371;
-  --tawny: #d67d70;
-  --paradise: #e9435e;
-  --flambe: #d65079;
-  --fuchsia: #e187b8;
-  --very: #6868ac;
-  --tourmaline: #85a1ac;
   --bg: #fff;
   --text: #111;
 }
@@ -84,6 +75,7 @@ main {
 p {
   margin: 0;
   letter-spacing: -0.01em;
+  text-shadow: 0 0 16px var(--bg);
 }
 
 p > span,
@@ -166,10 +158,81 @@ p a:focus-visible {
 
 .links a:hover,
 .links a:focus {
-  color: var(--paradise);
+  color: #e37;
 }
 
 ::selection {
-  background: var(--flambe);
+  background: #e37;
   color: var(--bg);
+  text-shadow: none;
+}
+
+/** BLOBS **/
+
+.blob {
+  --duration: 21s;
+  --size: 40vw;
+  --range: 40vw;
+  --blur: calc(var(--size) / 5);
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  filter: blur(calc(var(--size) * 0.3));
+}
+
+.blob-1 {
+  --size: 50vw;
+  --range: 20vw;
+  background: #fdfe45;
+  left: 20vw;
+  top: 45vh;
+  filter: blur(calc(var(--size) * 0.25));
+  animation: blob-1 var(--duration) linear infinite;
+}
+
+.blob-2 {
+  background: #ff57d7;
+  left: 30vw;
+  top: 35vh;
+  filter: blur(calc(var(--size) * 0.5));
+  animation: blob-2 var(--duration) linear infinite;
+  opacity: 0.5;
+}
+
+.blob-3 {
+  --size: 30vw;
+  background: #ff5d86;
+  left: 15vw;
+  top: 40vh;
+  filter: blur(calc(var(--size) * 0.25));
+  animation: blob-3 var(--duration) linear infinite;
+  opacity: 0.75;
+}
+
+@keyframes blob-1 {
+  33% {
+    transform: translate(calc(var(--range) * 1.8), calc(var(--range) * -0.5));
+  }
+  66% {
+    transform: translate(calc(var(--range) * 1.6), calc(var(--range) * -1));
+  }
+}
+
+@keyframes blob-2 {
+  33% {
+    transform: translate(calc(var(--range) * 0.5), calc(var(--range) * 0.3));
+  }
+  66% {
+    transform: translate(calc(var(--range) * 0.3), calc(var(--range) * 0.1));
+  }
+}
+
+@keyframes blob-3 {
+  33% {
+    transform: translate(calc(var(--range) * 0.3), calc(var(--range) * -0.2));
+  }
+  66% {
+    transform: translate(calc(var(--range) * 0.9), calc(var(--range) * -0.7));
+  }
 }
