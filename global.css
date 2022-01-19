@@ -8,6 +8,8 @@
   --yellow: #fdfe45;
   --accent: #ff14a9;
   --pink: #ff57d7;
+
+  color-scheme: light dark;
 }
 
 html,
@@ -264,6 +266,8 @@ a.arrow:focus-visible span {
   :root {
     --bg: #111;
     --text: #fafafa;
+
+    color-scheme: dark light;
   }
 }
 
