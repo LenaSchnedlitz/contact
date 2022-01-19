@@ -2,7 +2,7 @@
 
 :root {
   --frame: 32px;
-  --bg: #fff;
+  --bg: #fafafa;
   --text: #111;
 }
 
@@ -75,7 +75,7 @@ main {
 p {
   margin: 0;
   letter-spacing: -0.01em;
-  text-shadow: 0 0 16px var(--bg);
+  text-shadow: 0 0 1em var(--bg);
 }
 
 p > span,
@@ -170,10 +170,8 @@ p a:focus-visible {
 /** BLOBS **/
 
 .blob {
-  --duration: 21s;
-  --size: 40vw;
+  --duration: 40s;
   --range: 40vw;
-  --blur: calc(var(--size) / 5);
   position: absolute;
   width: var(--size);
   height: var(--size);
@@ -183,39 +181,39 @@ p a:focus-visible {
 
 .blob-1 {
   --size: 50vw;
-  --range: 20vw;
   background: #fdfe45;
   left: 20vw;
-  top: 45vh;
-  filter: blur(calc(var(--size) * 0.25));
+  top: 55vh;
+  filter: blur(calc(var(--size) / 4));
   animation: blob-1 var(--duration) linear infinite;
 }
 
 .blob-2 {
+  --size: 40vw;
   background: #ff57d7;
   left: 30vw;
-  top: 35vh;
-  filter: blur(calc(var(--size) * 0.5));
+  top: 50vh;
+  filter: blur(calc(var(--size) / 3));
   animation: blob-2 var(--duration) linear infinite;
-  opacity: 0.5;
+  opacity: 0.75;
 }
 
 .blob-3 {
-  --size: 30vw;
-  background: #ff5d86;
-  left: 15vw;
-  top: 40vh;
-  filter: blur(calc(var(--size) * 0.25));
+  --size: 35vw;
+  background: #ff14a9;
+  left: 20vw;
+  top: 55vh;
+  filter: blur(calc(var(--size) / 4));
   animation: blob-3 var(--duration) linear infinite;
   opacity: 0.75;
 }
 
 @keyframes blob-1 {
   33% {
-    transform: translate(calc(var(--range) * 1.8), calc(var(--range) * -0.5));
+    transform: translate(calc(var(--range) * 0.9), calc(var(--range) * -0.25));
   }
   66% {
-    transform: translate(calc(var(--range) * 1.6), calc(var(--range) * -1));
+    transform: translate(calc(var(--range) * 0.8), calc(var(--range) * -0.5));
   }
 }
 
