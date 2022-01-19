@@ -1,20 +1,13 @@
 @import "Inter/font-face.css";
 
 :root {
-  --frame: 32px;
+  --unit: 32px;
+
   --bg: #fafafa;
   --text: #111;
-  --accent: #e37;
-  --blob-yellow: #fdfe45;
-  --blob-accent: #ff14a9;
-  --blob-pink: #ff57d7;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111;
-    --text: #fafafa;
-  }
+  --yellow: #fdfe45;
+  --accent: #ff14a9;
+  --pink: #ff57d7;
 }
 
 html,
@@ -39,9 +32,18 @@ html {
 }
 
 body {
+  --frame: var(--unit);
   position: relative;
   background: var(--bg);
 }
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+  text-shadow: none;
+}
+
+/* LOGO */
 
 .logo {
   position: absolute;
@@ -70,11 +72,18 @@ body {
   filter: blur(0.5px);
 }
 
+.logo:hover path,
+.logo:focus-visible path {
+  fill: var(--text);
+}
+
+/* MAIN */
+
 main {
   position: absolute;
-  top: calc(20vh - var(--frame));
-  left: var(--frame);
-  width: calc(84vw - calc(var(--frame) * 2));
+  top: calc(20vh - var(--unit));
+  left: var(--unit);
+  width: calc(84vw - calc(var(--unit) * 2));
   height: 80%;
   display: flex;
   align-items: center;
@@ -82,13 +91,6 @@ main {
   font-weight: 300;
   line-height: 1.4em;
   overflow: hidden;
-}
-
-@media screen and (orientation: landscape) {
-  main {
-    line-height: 1.3;
-    left: calc(var(--frame) * 4);
-  }
 }
 
 p {
@@ -121,13 +123,19 @@ p > span > span > span > span,
 a.squiggly {
   color: currentColor;
   outline: none;
-  text-decoration: underline wavy var(--blob-yellow) 2px;
+  text-decoration: underline wavy var(--yellow) 2px;
+  transition: all ease-out 0.3s;
+}
+
+a.squiggly:hover,
+a.squiggly:focus-visible {
+  text-decoration-color: var(--pink);
 }
 
 a.arrow {
   display: inline-block;
   margin-top: 0.25em;
-  color: var(--blob-pink);
+  color: var(--pink);
   font-weight: 500;
   text-decoration: none;
   outline: none;
@@ -136,7 +144,7 @@ a.arrow {
 a.arrow > span {
   color: var(--text);
   font-weight: 300;
-  transition: all ease-in 0.3s;
+  transition: all ease-in 0.2s;
 }
 
 a.arrow:hover span,
@@ -144,14 +152,10 @@ a.arrow:focus-visible span {
   font-weight: 500;
   word-spacing: 0.1em;
   margin-right: 0.3em;
-  color: var(--blob-pink);
+  color: var(--pink);
 }
 
-@media screen and (orientation: landscape) {
-  a.squiggly {
-    text-decoration-thickness: 5px;
-  }
-}
+/* SIDE LINKS */
 
 .links {
   position: absolute;
@@ -189,30 +193,30 @@ a.arrow:focus-visible span {
   padding: 0 0 32px;
 }
 
-.links.top a:last-of-type,
-.links.bottom a:first-of-type {
-  font-weight: 400;
+.links a.fat,
+.links a.fat {
+  font-weight: 500;
 }
 
-.links a:hover,
-.links a:focus {
+.links a::before {
+  content: "•";
+  color: transparent;
+  transition: all ease-in 0.2s;
+}
+
+.links a:hover::before,
+.links a:focus::before {
   color: var(--accent);
 }
 
-::selection {
-  background: var(--accent);
-  color: var(--bg);
-  text-shadow: none;
-}
-
-/** BLOBS **/
+/* BLOBS */
 
 .blobs {
   --duration: 40s;
   --range: min(40vw, 40vh);
   --size: min(50vw, 50vh);
   position: absolute;
-  top: 16vh;
+  top: 20vh;
   left: 40vw;
   width: var(--size);
   height: var(--size);
@@ -233,7 +237,7 @@ a.arrow:focus-visible span {
 
 .blob-1 {
   --size: min(50vw, 50vh);
-  background: var(--blob-yellow);
+  background: var(--yellow);
   animation: blob-1 var(--duration) linear infinite;
 }
 
@@ -241,7 +245,7 @@ a.arrow:focus-visible span {
   --size: min(40vw, 40vh);
   top: -5vh;
   left: 0;
-  background: var(--blob-accent);
+  background: var(--accent);
   filter: blur(calc(var(--size) / 3));
   animation: blob-2 var(--duration) linear infinite;
   opacity: 0.75;
@@ -249,17 +253,52 @@ a.arrow:focus-visible span {
 
 .blob-3 {
   --size: min(35vw, 35vh);
-  background: var(--blob-pink);
+  background: var(--pink);
   animation: blob-3 var(--duration) linear infinite;
   opacity: 0.75;
 }
 
+/* MEDIA */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --text: #fafafa;
+  }
+}
+
+@media all and (min-width: 768px) {
+  main {
+    left: calc(var(--unit) * 2);
+  }
+}
+
 @media screen and (orientation: landscape) {
+  body {
+    --frame: calc(var(--unit) * 1.5);
+  }
+
+  main {
+    line-height: 1.3;
+    left: calc(var(--unit) * 4);
+  }
+
+  a.squiggly {
+    text-decoration-thickness: 5px;
+  }
+
+  .links a {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
   .blobs {
     top: 20vh;
     left: 60vw;
   }
 }
+
+/* KEYFRAMES */
 
 @keyframes blob-1 {
   33% {
