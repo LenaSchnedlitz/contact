@@ -4,6 +4,10 @@
   --frame: 32px;
   --bg: #fafafa;
   --text: #111;
+  --accent: #e37;
+  --blob-1: #fdfe45;
+  --blob-2: #ff57d7;
+  --blob-3: #ff14a9;
 }
 
 html,
@@ -37,6 +41,7 @@ body {
   top: var(--frame);
   left: var(--frame);
   color: var(--text);
+  outline: none;
 }
 
 .logo svg {
@@ -45,10 +50,17 @@ body {
 
 .logo circle {
   fill: currentColor;
+  transition: all ease-in .1s;
 }
 
 .logo path {
   fill: var(--bg);
+}
+
+.logo:hover circle,
+.logo:focus-visible circle {
+  fill: var(--accent);
+  filter: blur(.5px);
 }
 
 main {
@@ -113,6 +125,7 @@ p a:focus-visible {
   font-weight: 500;
   word-spacing: 0.1em;
   margin-right: 0.3em;
+  color: var(--blob-2);
 }
 
 .links {
@@ -158,11 +171,11 @@ p a:focus-visible {
 
 .links a:hover,
 .links a:focus {
-  color: #e37;
+  color: var(--accent);
 }
 
 ::selection {
-  background: #e37;
+  background: var(--accent);
   color: var(--bg);
   text-shadow: none;
 }
@@ -185,7 +198,7 @@ p a:focus-visible {
 
 .blob-1 {
   --size: min(50vw, 50vh);
-  background: #fdfe45;
+  background: var(--blob-1);
   filter: blur(calc(var(--size) / 4));
   animation: blob-1 var(--duration) linear infinite;
 }
@@ -194,7 +207,7 @@ p a:focus-visible {
   --size: min(40vw, 40vh);
   --top: 50vh;
   --left: 30vw;
-  background: #ff57d7;
+  background: var(--blob-2);
   filter: blur(calc(var(--size) / 3));
   animation: blob-2 var(--duration) linear infinite;
   opacity: 0.75;
@@ -202,7 +215,7 @@ p a:focus-visible {
 
 .blob-3 {
   --size: min(35vw, 35vh);
-  background: #ff14a9;
+  background: var(--blob-3);
   filter: blur(calc(var(--size) / 4));
   animation: blob-3 var(--duration) linear infinite;
   opacity: 0.75;
