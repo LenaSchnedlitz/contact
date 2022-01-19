@@ -59,7 +59,7 @@ main {
   height: 80%;
   display: flex;
   align-items: center;
-  font-size: min(7vw, 10vh);
+  font-size: min(7vw, 9vh);
   font-weight: 300;
   line-height: 1.4em;
   overflow: hidden;
@@ -171,8 +171,12 @@ p a:focus-visible {
 
 .blob {
   --duration: 40s;
-  --range: 40vw;
+  --range: min(40vw, 40vh);
+  --top: 55vh;
+  --left: 20vw;
   position: absolute;
+  top: var(--top);
+  left: var(--left);
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
@@ -180,32 +184,39 @@ p a:focus-visible {
 }
 
 .blob-1 {
-  --size: 50vw;
+  --size: min(50vw, 50vh);
   background: #fdfe45;
-  left: 20vw;
-  top: 55vh;
   filter: blur(calc(var(--size) / 4));
   animation: blob-1 var(--duration) linear infinite;
 }
 
 .blob-2 {
-  --size: 40vw;
+  --size: min(40vw, 40vh);
+  --top: 50vh;
+  --left: 30vw;
   background: #ff57d7;
-  left: 30vw;
-  top: 50vh;
   filter: blur(calc(var(--size) / 3));
   animation: blob-2 var(--duration) linear infinite;
   opacity: 0.75;
 }
 
 .blob-3 {
-  --size: 35vw;
+  --size: min(35vw, 35vh);
   background: #ff14a9;
-  left: 20vw;
-  top: 55vh;
   filter: blur(calc(var(--size) / 4));
   animation: blob-3 var(--duration) linear infinite;
   opacity: 0.75;
+}
+
+@media screen and (orientation: landscape) {
+  .blob {
+    --top: 30vh;
+    --left: 50vw;
+  }
+  .blob-2 {
+    --top: 25vh;
+    --left: 60vw;
+  }
 }
 
 @keyframes blob-1 {
