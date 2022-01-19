@@ -57,7 +57,7 @@ body {
 
 .logo circle {
   fill: currentColor;
-  transition: all ease-in .1s;
+  transition: all ease-in 0.1s;
 }
 
 .logo path {
@@ -67,7 +67,7 @@ body {
 .logo:hover circle,
 .logo:focus-visible circle {
   fill: var(--accent);
-  filter: blur(.5px);
+  filter: blur(0.5px);
 }
 
 main {
@@ -98,42 +98,59 @@ p {
   text-shadow: 0 0 1em var(--bg);
 }
 
-p > span,
-p > a > span {
+p > span {
   font-weight: 400;
 }
 
 p > span > span,
-p > a > span > span {
+.squiggly {
   font-weight: 500;
 }
 
 p > span > span > span,
-p > a > span > span > span {
+.squiggly > span {
   font-weight: 600;
 }
 
 p > span > span > span > span,
-p > a > span > span > span > span {
+.squiggly > span > span {
   font-weight: 700;
   font-weight: 650;
 }
 
-p a {
+a.squiggly {
+  color: currentColor;
+  outline: none;
+  text-decoration: underline wavy var(--blob-yellow) 2px;
+}
+
+a.arrow {
   display: inline-block;
   margin-top: 0.25em;
-  color: currentColor;
+  color: var(--blob-pink);
+  font-weight: 500;
   text-decoration: none;
-  transition: all ease-in 0.3s;
   outline: none;
 }
 
-p a:hover,
-p a:focus-visible {
+a.arrow > span {
+  color: var(--text);
+  font-weight: 300;
+  transition: all ease-in 0.3s;
+}
+
+a.arrow:hover span,
+a.arrow:focus-visible span {
   font-weight: 500;
   word-spacing: 0.1em;
   margin-right: 0.3em;
   color: var(--blob-pink);
+}
+
+@media screen and (orientation: landscape) {
+  a.squiggly {
+    text-decoration-thickness: 5px;
+  }
 }
 
 .links {
