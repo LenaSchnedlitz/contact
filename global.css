@@ -123,14 +123,32 @@ p > span > span > span > span,
 }
 
 a.squiggly {
+  position: relative;
   color: currentColor;
   outline: none;
-  text-decoration: underline wavy var(--yellow) 2px;
+  text-decoration: none;
+}
+
+a.squiggly::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: max-content;
+  content: "Lena Schned";
+  color: transparent;
+  pointer-events: none;
+  outline: none;
+  text-decoration: underline;
+  text-decoration-color: var(--yellow);
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25rem;
   transition: all ease-out 0.3s;
 }
 
-a.squiggly:hover,
-a.squiggly:focus-visible {
+a.squiggly:hover::after,
+a.squiggly:focus-visible::after {
   text-decoration-color: var(--pink);
 }
 
@@ -287,7 +305,7 @@ a.arrow:focus-visible span {
     left: calc(var(--unit) * 4);
   }
 
-  a.squiggly {
+  a.squiggly::after {
     text-decoration-thickness: 5px;
   }
 
