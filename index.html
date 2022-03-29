@@ -5,7 +5,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <meta http-equiv="Content-Security-Policy" content="script-src 'none'" />
+    <!--
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'https://lena.contact'"
+    />
+    -->
     <link rel="canonical" href="https://lena.contact/" />
 
     <meta property="og:type" content="website" />
@@ -95,7 +100,7 @@
         and<span>
           UI<span>/U<span>X de</span>sig</span>ner</span
         >.<br />
-        <a class="arrow" href="mailto:hello@lenaschnedlitz.com"
+        <a class="arrow mail" href="mailto:hello[AT]lenaschnedlitz.com"
           ><span>Say hello</span> ⟶</a
         >
       </p>
@@ -108,9 +113,18 @@
       <a class="fat" rel="prefetch" href="https://lenaschnedlitz.com/">
         lenaschnedlitz.com
       </a>
-      <a href="mailto:hello@lenaschnedlitz.com">
-        hello&shy;@&shy;lenaschnedlitz&shy;.&shy;com
+      <a class="mail" href="mailto:hello[AT]lenaschnedlitz.com">
+        hello[AT]lenaschnedlitz.com
       </a>
     </section>
+    <script>
+      document.body.onload = () => {
+        const mailLinks = document.getElementsByClassName("mail");
+        for (let i = 0; i < mailLinks.length; i++) {
+          mailLinks[i].href = mailLinks[i].href.replace("[AT]", "@");
+          mailLinks[i].innerHTML = mailLinks[i].innerHTML.replace("[AT]", "@");
+        }
+      };
+    </script>
   </body>
 </html>
