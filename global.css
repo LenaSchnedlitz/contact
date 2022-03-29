@@ -278,6 +278,14 @@ a.arrow:focus-visible span {
   opacity: 0.75;
 }
 
+.hidden {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
 /* MEDIA */
 
 @media (prefers-color-scheme: dark) {
