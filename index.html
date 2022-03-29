@@ -7,7 +7,7 @@
     <meta name="color-scheme" content="light dark" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="script-src lena.contact"
+      content="script-src 'nonce-test123'"
     />
     <link rel="canonical" href="https://lena.contact/" />
 
@@ -109,7 +109,7 @@
         hello[AT]lenaschnedlitz.com
       </a>
     </section>
-    <script>
+    <script nonce="test123">
       document.body.onload = () => {
         const mailLinks = document.getElementsByClassName("mail");
         for (let i = 0; i < mailLinks.length; i++) {
