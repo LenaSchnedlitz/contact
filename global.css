@@ -229,6 +229,14 @@ a.arrow:focus-visible span {
   color: var(--accent);
 }
 
+.impressum {
+  position: absolute;
+  left: var(--frame);
+  width: max-content;
+  text-align: left;
+  opacity: 0.5;
+}
+
 /* BLOBS */
 
 .blobs {
