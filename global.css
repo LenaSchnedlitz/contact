@@ -234,7 +234,7 @@ a.arrow:focus-visible span {
   left: var(--frame);
   width: max-content;
   text-align: left;
-  opacity: 0.5;
+  opacity: 0.75;
 }
 
 /* BLOBS */
