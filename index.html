@@ -98,7 +98,7 @@
         and<span>
           UI<span>/U<span>X de</span>sig</span>ner</span
         >.<br />
-        <a class="arrow mail" href="mailto:hello[AT]lenaschnedlitz.com"
+        <a class="arrow mail" href="mailto:hello_AT_lenaschnedlitz.com"
           ><span>Say hello</span> ⟶</a
         >
       </p>
@@ -111,8 +111,8 @@
       <a class="fat" rel="prefetch" href="https://lenaschnedlitz.com/">
         lenaschnedlitz.com
       </a>
-      <a class="mail" href="mailto:hello[AT]lenaschnedlitz.com">
-        hello[AT]lenaschnedlitz.com
+      <a class="mail" href="mailto:hello_AT_lenaschnedlitz.com">
+        hello_AT_lenaschnedlitz.com
       </a>
     </section>
     <section class="impressum links bottom">
@@ -122,8 +122,8 @@
       document.body.onload = () => {
         const mailLinks = document.getElementsByClassName("mail");
         for (let i = 0; i < mailLinks.length; i++) {
-          mailLinks[i].href = mailLinks[i].href.replace("[AT]", "@");
-          mailLinks[i].innerHTML = mailLinks[i].innerHTML.replace("[AT]", "@");
+          mailLinks[i].href = mailLinks[i].href.replace("_AT_", "@");
+          mailLinks[i].innerHTML = mailLinks[i].innerHTML.replace("_AT_", "@");
         }
       };
     </script>
